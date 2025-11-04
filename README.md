@@ -25,10 +25,10 @@ python manage.py startapp medico
 #verification du serveur Django
 python manage.py runserver 0.0.0.0:8000
 
-##Question 2 :Vue et template "About"
+## Question 2 :Vue et template "About"
 
 
-###Commandes
+## Commandes
 
 -Etape 1:Création du template 'about.html' dans 'medico/templates/medico/'
 
@@ -41,6 +41,31 @@ python manage.py runserver 0.0.0.0:8000
 -Etape5: verification serveur Django:python manage.py runserver 0.0.0.0:8000
 
 
+## Question 3 : Création du modéle Consultation
+
+## Objectif
+
+Création d'un modèle 'Consultation' dans l'application 'medico'
+ -'patient_nom' : chaine de caractères
+-'patient_prenom' : chaine de caractères
+-'patient_genre': choix entre Homme et Femme
+'patient_age' :entier positif
+-'description' = texte
+-'date_consultation' = auto date
+
+aucun de ces champs ne peut recevoir la valeur 'null'
+
+## Choix justifier
+-'patient_genre' utilise 'choices=[('M','Homme'),('F','Femme')] pour limiter les valeurs
+-'date_consultation' date automatiques.
+
+## etapes 
+
+-Creation du modéle dans 'medico/modelspy'
+
+## applicatioon de la migration
+python manage.py makemigrations medico
+python manage.py migrate
 
 
 
