@@ -25,4 +25,22 @@ python manage.py startapp medico
 #verification du serveur Django
 python manage.py runserver 0.0.0.0:8000
 
+##Question 2 :Vue et template "About"
+
+
+###Commandes
+
+-Etape 1:Création du template 'about.html' dans 'medico/templates/medico/'
+
+-Etape2:Création de la vue 'about' dans 'medico/view.py'
+
+-Etape3:Ajout du chemin medico/urls.py
+
+-Etape4:Ajout de URLS de l'app dans le projet cc
+
+-Etape5: verification serveur Django:python manage.py runserver 0.0.0.0:8000
+
+
+
+
 
