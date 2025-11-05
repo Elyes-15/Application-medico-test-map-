@@ -1,0 +1,8 @@
+<h2>Confirmer la suppression</h2>
+<p>Voulez-vous vraiment supprimer la consultation de {{ consultation.patient_nom }} {{ consultation.patient_prenom }} ?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Oui, supprimer</button>
+    <a href="{% url 'liste_consultation' %}">Annuler</a>
+</form>

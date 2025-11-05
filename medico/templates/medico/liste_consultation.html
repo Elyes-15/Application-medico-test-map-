@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Liste des Consultations</title>
 </head>
-
 <body>
     <h1>Liste des Consultations</h1>
 
     {% if consultations %}
-    <table>
+    <table border="1" cellpadding="6" cellspacing="0">
         <thead>
             <tr>
                 <th>Nom</th>
@@ -18,6 +16,7 @@
                 <th>Âge</th>
                 <th>Date</th>
                 <th>Description</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,19 +26,24 @@
                 <td>{{ consultation.patient_prenom }}</td>
                 <td>{{ consultation.patient_genre }}</td>
                 <td>{{ consultation.patient_age }}</td>
-                <td>{{ consultation.date }}</td>
+                <td>{{ consultation.date_consultation }}</td>
                 <td>{{ consultation.description|truncatechars:20 }}</td>
                 <td>
-                    <a href="{% url 'details_consultation' consultation.id %}">Voir détails</a>
+                    <a href="{% url 'details_consultation' consultation.id %}">Voir détails</a> |
+                    <a href="{% url 'effacer_consultation' consultation.id %}">Supprimer</a>
+                    
+
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    {% else %}
+        <p>Aucune consultation enregistrée.</p>
     {% endif %}
 
     <br>
-    <a href="/">Retour à l'accueil</a>
-</body>
+    <a href="{% url 'about' %}">Retour à l'accueil</a>
 
+</body>
 </html>
