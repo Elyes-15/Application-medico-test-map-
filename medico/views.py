@@ -1,9 +1,4 @@
-from django.shortcuts import render
-<<<<<<< HEAD
-def about(request):
-    return render(request, 'medico/about.html')
-# Create your views here.
-=======
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Consultation
 
 def about(request):
@@ -17,4 +12,10 @@ def consultation_list(request):
     consultations = Consultation.objects.all()
     return render(request, 'medico/liste_consultation.html', {'consultations': consultations})
 
->>>>>>> d8374caa018b1b9bc0817647b170cf460b9b82c5
+def effacer_consultation(request, consultation_id):
+    consultation = get_object_or_404(Consultation, pk=consultation_id)
+
+    if request.method == 'POST':
+        consultation.delete()
+        return redirect('liste_consultation')
+    return render(request, 'medico/effacer_consultation.html', {'consultation': consultation})
