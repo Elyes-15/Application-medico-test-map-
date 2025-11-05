@@ -165,3 +165,35 @@ path('consultations/', views.consultation_list, 'liste_consultaiton'),
 - Afficher la liste des consultations sous forme de tableau avec toutes les informations du patient
 - Description tronquée à 20 caractères avec le filtre truncatechars:20
 - Lien vers la fiche détaillée de chaque consultation
+
+### Question 7 : Suppression d’une consultation
+**Objectif** : Créer une vue et un template permettant de supprimer une consultation existante avec confirmation avant suppression.
+
+**ETAPES**
+
+
+1-Création de la vue effacer_consultation dans medico/views.py : 
+    
+     -récupération de la consultation via get_object_or_404.
+
+     - suppression de la consultation et redirection vers la liste.
+    
+    -affichage d’une page de confirmation.(si post)
+
+
+2-Ajout de l’URL correspondante dans medico/urls.py: path('effacer_consultation/<int:consultation_id>/', views.effacer_consultation, name='effacer_consultation')
+
+
+3-Création du template effacer_consultation.html dans medico/templates/medico/:
+    
+     -Affiche les informations de la consultation.
+     -Bouton pour confirmer la suppression.
+     -Lien pour annuler et revenir à la liste.
+
+4-Modification du template liste_consultation.html :
+    
+    -Ajout d’un lien “Supprimer” pour chaque consultation.
+     
+
+
+
