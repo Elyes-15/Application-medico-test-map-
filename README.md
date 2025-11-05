@@ -67,5 +67,21 @@ aucun de ces champs ne peut recevoir la valeur 'null'
 python manage.py makemigrations medico
 python manage.py migrate
 
+### Question 5: Afficher les détails d'une ocnsultation
+**Objectif**: Créer une vue et le template associé pour afficher les détails d’une consultation.
+ L’URL d’accès doit être /consultations/n où n est l'dentifiant de la consultation
 
+ **Commandes et étapes suivis**:
+
+ **Création de la vue détails** dans 'medico/views.py' de la manière suivante:
+ def details_consultation(request, n):
+    consultation = Consultation.objects.get(id = n)
+    return render(request, 'medico/details_consultation.html', {'consultation': consultation})
+
+**Ajout de l'url** dans 'medico/urls.py' de la manière suivante:
+path('consultation/<int:n>/', views.details_consultation, name = 'details_consultation'),
+
+**Création de la template**: nommée 'detail_consultation.html' dans lequel nous avons:
+- Afficher toutes les informations concernant le patient et de la consultation
+- ajouter un lien de retour vers la liste des consultations initiale
 
