@@ -1,0 +1,146 @@
+[
+  {
+    "model": "medico.consultation",
+    "pk": 1,
+    "fields": {
+      "patient_nom": "Dupont",
+      "patient_prenom": "Alice",
+      "patient_genre": "F",
+      "patient_age": 25,
+      "description": "Grippe - paracétamol, repos",
+      "date_consultation": "2025-11-04"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 2,
+    "fields": {
+      "patient_nom": "Leroy",
+      "patient_prenom": "Bob",
+      "patient_genre": "M",
+      "patient_age": 30,
+      "description": "Mal de tête - ibuprofène, repos",
+      "date_consultation": "2025-11-03"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 3,
+    "fields": {
+      "patient_nom": "Petit",
+      "patient_prenom": "Caroline",
+      "patient_genre": "F",
+      "patient_age": 28,
+      "description": "Rhume - sirop contre la toux, repos",
+      "date_consultation": "2025-11-02"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 4,
+    "fields": {
+      "patient_nom": "Moreau",
+      "patient_prenom": "David",
+      "patient_genre": "M",
+      "patient_age": 35,
+      "description": "Toux - sirop, inhalation",
+      "date_consultation": "2025-11-01"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 5,
+    "fields": {
+      "patient_nom": "Dubois",
+      "patient_prenom": "Emma",
+      "patient_genre": "F",
+      "patient_age": 22,
+      "description": "Fièvre - paracétamol, hydratation",
+      "date_consultation": "2025-10-31"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 6,
+    "fields": {
+      "patient_nom": "Leroy",
+      "patient_prenom": "François",
+      "patient_genre": "M",
+      "patient_age": 40,
+      "description": "Mal de ventre - Spasfon, hydratation",
+      "date_consultation": "2025-10-30"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 7,
+    "fields": {
+      "patient_nom": "Fontaine",
+      "patient_prenom": "Gabrielle",
+      "patient_genre": "F",
+      "patient_age": 32,
+      "description": "Otite - paracétamol, gouttes auriculaires",
+      "date_consultation": "2025-10-29"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 8,
+    "fields": {
+      "patient_nom": "Bernard",
+      "patient_prenom": "Hugo",
+      "patient_genre": "M",
+      "patient_age": 29,
+      "description": "Mal de gorge - pastilles, gargarismes",
+      "date_consultation": "2025-10-28"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 9,
+    "fields": {
+      "patient_nom": "Roux",
+      "patient_prenom": "Isabelle",
+      "patient_genre": "F",
+      "patient_age": 26,
+      "description": "Allergie - antihistaminique",
+      "date_consultation": "2025-10-27"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 10,
+    "fields": {
+      "patient_nom": "Lefèvre",
+      "patient_prenom": "Julien",
+      "patient_genre": "M",
+      "patient_age": 34,
+      "description": "Conjonctivite - collyre antibiotique, hygiène oculaire",
+      "date_consultation": "2025-10-26"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 11,
+    "fields": {
+      "patient_nom": "Dupuis",
+      "patient_prenom": "Karine",
+      "patient_genre": "F",
+      "patient_age": 31,
+      "description": "Gastro-entérite - réhydratation, repos",
+      "date_consultation": "2025-10-25"
+    }
+  },
+  {
+    "model": "medico.consultation",
+    "pk": 12,
+    "fields": {
+      "patient_nom": "Garnier",
+      "patient_prenom": "Louis",
+      "patient_genre": "M",
+      "patient_age": 38,
+      "description": "Plaie légère - désinfection, pansement",
+      "date_consultation": "2025-10-24"
+    }
+  }
+]

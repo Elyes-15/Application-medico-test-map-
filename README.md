@@ -24,6 +24,71 @@ python manage.py startapp medico
 
 #verification du serveur Django
 python manage.py runserver 0.0.0.0:8000
+## Question 2 :Vue et template "About"
+
+
+## Commandes
+
+-Etape 1:Création du template 'about.html' dans 'medico/templates/medico/'
+
+-Etape2:Création de la vue 'about' dans 'medico/view.py'
+
+-Etape3:Ajout du chemin medico/urls.py
+
+-Etape4:Ajout de URLS de l'app dans le projet cc
+
+-Etape5: verification serveur Django:python manage.py runserver 0.0.0.0:8000
+
+
+## Question 3 : Création du modéle Consultation
+
+## Objectif
+
+Création d'un modèle 'Consultation' dans l'application 'medico'
+ -'patient_nom' : chaine de caractères
+-'patient_prenom' : chaine de caractères
+-'patient_genre': choix entre Homme et Femme
+'patient_age' :entier positif
+-'description' = texte
+-'date_consultation' = auto date
+
+aucun de ces champs ne peut recevoir la valeur 'null'
+
+## Choix justifier
+-'patient_genre' utilise 'choices=[('M','Homme'),('F','Femme')] pour limiter les valeurs
+-'date_consultation' date automatiques.
+
+## etapes 
+
+-Creation du modéle dans 'medico/modelspy'
+
+## applicatioon de la migration
+python manage.py makemigrations medico
+python manage.py migrate
+## Question 4 
+fixtures JSON pour les consultations
+-Etapes realisees:
+
+1. creation des consultations : 
+12 consultations generées par IA
+
+2.  le fichier.json est situé dans medico/fixtures/.
+
+-Chaque consultation contient des champs correspondant au modele.
+
+- Pour charger les données dans la base :
+
+   python manage.py loaddata examples
+
+   puis vérifier  avec les commandes :
+
+   - from medico.models import Consultation
+   - Consultation.objects.count()
+   - Consultation.objects.first()
+
+
+
+
 
 ## Question 2 :Vue et template "About"
 
