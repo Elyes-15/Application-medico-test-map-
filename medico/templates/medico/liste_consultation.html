@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Liste des Consultations</title>
+</head>
+
+<body>
+    <h1>Liste des Consultations</h1>
+
+    {% if consultations %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Genre</th>
+                <th>Âge</th>
+                <th>Date</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for consultation in consultations %}
+            <tr>
+                <td>{{ consultation.patient_nom }}</td>
+                <td>{{ consultation.patient_prenom }}</td>
+                <td>{{ consultation.patient_genre }}</td>
+                <td>{{ consultation.patient_age }}</td>
+                <td>{{ consultation.date }}</td>
+                <td>{{ consultation.description|truncatechars:20 }}</td>
+                <td>
+                    <a href="{% url 'details_consultation' consultation.id %}">Voir détails</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    <br>
+    <a href="/">Retour à l'accueil</a>
+</body>
+
+</html>

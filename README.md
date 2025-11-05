@@ -106,3 +106,19 @@ path('consultation/<int:n>/', views.details_consultation, name = 'details_consul
 - Afficher toutes les informations concernant le patient et de la consultation
 - ajouter un lien de retour vers la liste des consultations initiale
 
+### Question 6 : Liste des consultations
+
+**Objectif** : Créer une vue et un template pour afficher la liste des consultations sous forme tabulaire à l'URL `/consultations`.
+
+**Commandes et étapes** :
+
+**Création de la vue liste** dans `medico/views.py` de la manière suivante:
+def consultation_list(request):
+consultations = Consultation.objects.all()
+ return render(request, 'medico/liste_consultation.html', {'consultation': consultation}),
+**Ajout de l'url** dans 'medico/urls.py' de la manière suivante:
+path('consultations/', views.consultation_list, 'liste_consultaiton'),
+**Création de la template**: nommée 'liste_consultation.html' dans lequel nous avons:
+- Afficher la liste des consultations sous forme de tableau avec toutes les informations du patient
+- Description tronquée à 20 caractères avec le filtre truncatechars:20
+- Lien vers la fiche détaillée de chaque consultation

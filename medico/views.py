@@ -7,3 +7,8 @@ def about(request):
 def details_consultation(request, n):
     consultation = Consultation.objects.get(id = n)
     return render(request, 'medico/details_consultation.html', {'consultation': consultation})
+
+def consultation_list(request):
+    consultations = Consultation.objects.all()
+    return render(request, 'medico/liste_consultation.html', {'consultations': consultations})
+
