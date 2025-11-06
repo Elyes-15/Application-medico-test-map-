@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Consultation
+from .forms import ConsultationForm
 
 def about(request):
     return render(request, 'medico/about.html')
@@ -11,6 +12,16 @@ def details_consultation(request, n):
 def consultation_list(request):
     consultations = Consultation.objects.all()
     return render(request, 'medico/liste_consultation.html', {'consultations': consultations})
+def ajouter_consultation(request):
+    if request.method == 'POST':
+        form = ConsultationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_consultation')  
+    else:
+        form = ConsultationForm()
+    return render(request, 'medico/nouvelle_consultation.html', {'form': form})
+
 def effacer_consultation(request, consultation_id):
     consultation = get_object_or_404(Consultation, pk=consultation_id)
 
@@ -18,3 +29,16 @@ def effacer_consultation(request, consultation_id):
         consultation.delete()
         return redirect('liste_consultation')
     return render(request, 'medico/effacer_consultation.html', {'consultation': consultation})
+
+def changer_consultation(request, consultation_id):
+    consultation = get_object_or_404(Consultation, id=consultation_id)
+
+    if request.method == 'POST':
+        form = ConsultationForm(request.POST, instance=consultation)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_consultation')
+    else:
+        form = ConsultationForm(instance=consultation)
+
+    return render(request, 'medico/changer_consultation.html', {'form': form, 'consultation': consultation})

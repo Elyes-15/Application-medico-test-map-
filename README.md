@@ -26,47 +26,6 @@ python manage.py startapp medico
 python manage.py runserver 0.0.0.0:8000
 ## Question 2 :Vue et template "About"
 
-## Question 2 :Vue et template "About"
-
-
-## Commandes
-
--Etape 1:Création du template 'about.html' dans 'medico/templates/medico/'
-
--Etape2:Création de la vue 'about' dans 'medico/view.py'
-
--Etape3:Ajout du chemin medico/urls.py
-
--Etape4:Ajout de URLS de l'app dans le projet cc
-
--Etape5: verification serveur Django:python manage.py runserver 0.0.0.0:8000
-
-
-## Question 3 : Création du modéle Consultation
-
-## Objectif
-
-Création d'un modèle 'Consultation' dans l'application 'medico'
- -'patient_nom' : chaine de caractères
--'patient_prenom' : chaine de caractères
--'patient_genre': choix entre Homme et Femme
-'patient_age' :entier positif
--'description' = texte
--'date_consultation' = auto date
-
-aucun de ces champs ne peut recevoir la valeur 'null'
-
-## Choix justifier
--'patient_genre' utilise 'choices=[('M','Homme'),('F','Femme')] pour limiter les valeurs
--'date_consultation' date automatiques.
-
-## etapes 
-
--Creation du modéle dans 'medico/modelspy'
-
-## applicatioon de la migration
-python manage.py makemigrations medico
-python manage.py migrate
 
 
 
@@ -108,6 +67,22 @@ aucun de ces champs ne peut recevoir la valeur 'null'
 ## applicatioon de la migration
 python manage.py makemigrations medico
 python manage.py migrate
+
+
+
+## Commandes
+
+-Etape 1:Création du template 'about.html' dans 'medico/templates/medico/'
+
+-Etape2:Création de la vue 'about' dans 'medico/view.py'
+
+-Etape3:Ajout du chemin medico/urls.py
+
+-Etape4:Ajout de URLS de l'app dans le projet cc
+
+-Etape5: verification serveur Django:python manage.py runserver 0.0.0.0:8000
+
+
 ## Question 4 
 fixtures JSON pour les consultations
 -Etapes realisees:
@@ -166,7 +141,14 @@ path('consultations/', views.consultation_list, 'liste_consultaiton'),
 - Description tronquée à 20 caractères avec le filtre truncatechars:20
 - Lien vers la fiche détaillée de chaque consultation
 
-### Question 7 : Suppression d’une consultation
+### Question7
+-Ajout de nouvelle_consultation
+
+-Ajout de sa vue
+
+-Ajout de son urls
+
+### Question 8 : Suppression d’une consultation
 **Objectif** : Créer une vue et un template permettant de supprimer une consultation existante avec confirmation avant suppression.
 
 **ETAPES**
@@ -196,4 +178,23 @@ path('consultations/', views.consultation_list, 'liste_consultaiton'),
      
 
 
+# Question 9 – Modification d’une consultation
 
+## Objectif
+Permettre la modification d’une consultation existante.  
+La date de création ne doit pas être modifiée.
+
+## Étapes réalisées
+1. Création d’une **vue `changer_consultation`** dans `medico/views.py` :
+   - Récupère la consultation à modifier via son `id`.
+   - Si la requête est POST, met à jour les champs modifiables et sauvegarde.
+   - Sinon, affiche le formulaire avec les informations existantes.
+
+2. Création d’un **template `changer_consultation.html`** dans `medico/templates/medico/` :
+   - Formulaire qui affiche les champs modifiable de la consultation.
+   - Bouton “Enregistrer” pour soumettre les modifications.
+   - Lien “Retour à la liste” vers la page des consultations.
+
+3. Mise à jour de `medico/urls.py` :
+```python
+path('changer_consultation/<int:n>/', views.changer_consultation, name='changer_consultation'),

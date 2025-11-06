@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modifier la consultation</title>
+</head>
+<body>
+    <h1>Modifier la consultation de {{ consultation.patient_prenom }} {{ consultation.patient_nom }}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enregistrer</button>
+    </form>
+
+    <br>
+    <a href="{% url 'liste_consultation' %}">Retour à la liste</a>
+</body>
+</html>
