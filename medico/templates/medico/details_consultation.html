@@ -13,4 +13,9 @@
 <p><strong>Date: </strong> {{ consultation.date_consultation }}</p>
 <p><strong>Description: </strong></p>
 <p>{{ consultation.description }}</p>
+
+<br>
+<a href="{% url 'consulter_traitements' consultation.id %}">Voir les traitements associés</a>
+<a href="{% url 'liste_consultation' %}" class="btn btn-secondary">Annuler</a>
+
 {% endblock %}

@@ -59,3 +59,11 @@ def ajouter_traitement(request):
     else:
         form = TraitementForm()
     return render(request, 'medico/ajouter_traitement.html', {'form': form})
+def consulter_traitements(request, consultation_id):
+    consultation = get_object_or_404(Consultation, id=consultation_id)
+    traitements = Traitement.objects.filter(consultation=consultation)
+    
+    return render(request, 'medico/consulter_traitements.html', {
+        'consultation': consultation,
+        'traitements': traitements
+    })

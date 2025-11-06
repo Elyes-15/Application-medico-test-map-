@@ -1,0 +1,37 @@
+{% extends 'medico/base.html' %}
+
+{% block title %}Traitements de la consultation{% endblock %}
+
+{% block content %}
+<h1>Traitements de {{ consultation.patient_prenom }} {{ consultation.patient_nom }}</h1>
+
+{% if traitements %}
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Médicament</th>
+            <th>Quantité</th>
+            <th>Contenant</th>
+            <th>Durée (jours)</th>
+            <th>Posologie</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in traitements %}
+        <tr>
+            <td>{{ t.medicament }}</td>
+            <td>{{ t.quantite }}</td>
+            <td>{{ t.contenant }}</td>
+            <td>{{ t.duree }}</td>
+            <td>{{ t.posologie }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Pas de traitement associé à cette consultation.</p>
+{% endif %}
+
+<br>
+<a href="{% url 'details_consultation' consultation.id %}">Retour à la consultation</a>
+{% endblock %}
