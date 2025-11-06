@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Consultation
 from .forms import ConsultationForm
+from .models import Traitement
+from .forms import TraitementForm
 
 def about(request):
     return render(request, 'medico/about.html')
@@ -45,3 +47,15 @@ def changer_consultation(request, consultation_id):
 
 def home(request):
     return render(request, 'medico/home.html')
+
+
+
+def ajouter_traitement(request):
+    if request.method == "POST":
+        form = TraitementForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_consultation')  
+    else:
+        form = TraitementForm()
+    return render(request, 'medico/ajouter_traitement.html', {'form': form})

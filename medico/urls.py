@@ -9,5 +9,4 @@ urlpatterns = [
     path('consultations/effacer/<int:consultation_id>/', views.effacer_consultation, name='effacer_consultation'),
     path('changer_consultation/<int:consultation_id>/', views.changer_consultation, name='changer_consultation'),
     path('nouvelle_consultation/', views.ajouter_consultation, name='ajouter_consultation'),
-
-]
+    path('ajouter_traitement/', views.ajouter_traitement, name='ajouter_traitement'), ]
