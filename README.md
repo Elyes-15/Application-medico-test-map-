@@ -180,7 +180,6 @@ path('consultations/', views.consultation_list, 'liste_consultaiton'),
 
 # Question 9 – Modification d’une consultation
 
-
 1. Création d’une **vue `changer_consultation`** dans `medico/views.py` :
    - Récupère la consultation à modifier via son `id`.
    - Si la requête est POST, met à jour les champs modifiables et sauvegarde.
@@ -194,8 +193,7 @@ path('consultations/', views.consultation_list, 'liste_consultaiton'),
 3. Mise à jour de `medico/urls.py` :
 ```python
 path('changer_consultation/<int:n>/', views.changer_consultation, name='changer_consultation'),
-
-## Question 10:Création d’un template principal et d’un menu commun
+ ## Question 10:Création d’un template principal et d’un menu commun
 1.Création du template principal (base.html)
 - Contient la structure HTML générale du site.
  - Inclut un en-tête et un menu de navigation commun.
@@ -212,4 +210,6 @@ path('changer_consultation/<int:n>/', views.changer_consultation, name='changer_
 4. Amélioration esthétique avec Bootstrap
 - Intégrer la bibliothèque **Bootstrap** dans le template principal.
  
+ 
 
+ 
