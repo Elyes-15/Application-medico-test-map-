@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nouvelle Consultation</title>
-</head>
-<body>
-    <h1> Ajouter une nouvelle consultation</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enregistrer</button>
-         <a href="{% url 'liste_consultation' %}">Retour à la liste</a>
+{% extends 'medico/base.html' %}
 
+{% block title %}Nouvelle consultation{% endblock %}
 
-    </form>
-    
-</body>
-</html>
+{% block content %}
+<h1>Ajouter une nouvelle consultation</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer</button>
+    <a href="{% url 'liste_consultation' %}">Retour à la liste</a>
+</form>
+{% endblock %}
