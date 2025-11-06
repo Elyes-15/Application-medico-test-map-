@@ -14,3 +14,17 @@ class Consultation(models.Model):
 
     def __str__(self):
         return f"{self.patient_prenom} {self.patient_nom} - {self.date_consultation}"
+class Traitement(models.Model):
+    consultation = models.ForeignKey(
+        'Consultation',     
+        on_delete=models.CASCADE,  
+        related_name='traitements' 
+    )
+    medicament = models.CharField(max_length=100, null=False)
+    quantite = models.PositiveIntegerField(null=False)
+    contenant = models.CharField(max_length=50, null=False)
+    duree_en_jours = models.PositiveIntegerField(null=False)
+    posologie = models.TextField(null=False) 
+
+    def __str__(self):
+        return f"{self.medicament} ({self.consultation})"
