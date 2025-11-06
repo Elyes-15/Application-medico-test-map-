@@ -197,15 +197,28 @@ path('changer_consultation/<int:n>/', views.changer_consultation, name='changer_
  
  ## Question 10 : Création d’un template principal et d’un menu commun
 
-1. **Création du template principal (base.html)** :
+ 1. **Création du template principal (base.html)** :
    - Contient la structure HTML générale du site.
    - Inclut un en-tête et un menu de navigation commun.
 
-2. **Héritage dans les autres templates** :
+ 2. **Héritage dans les autres templates** :
    - Chaque page spécifique hérite du template principal.
 
-3. **Définition de l’URL racine** :
+ 3. **Définition de l’URL racine** :
    - Configurer l’URL `/` pour qu’elle affiche la page principale.
 
-4. **Amélioration esthétique avec Bootstrap** :
+ 4. **Amélioration esthétique avec Bootstrap** :
    - Intégrer la bibliothèque **Bootstrap** dans le template principal.
+
+## Question 11 : Création du modèle `Traitement`
+
+### 1. Définition du modèle `Traitement` dans `medico/models.py` :
+
+Le modèle doit posséder les attributs suivants :
+- medicament : nom du médicament (non null)
+- quantite : quantité à administrer (non null)
+- contenant : type de contenant (boîte, bouteille, etc.) (non null)
+- duree_en_jours : durée du traitement en jours (non null)
+- posologie: description de la posologie (un ou plusieurs attributs au choix) (non null)
+
+
