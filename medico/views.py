@@ -42,3 +42,6 @@ def changer_consultation(request, consultation_id):
         form = ConsultationForm(instance=consultation)
 
     return render(request, 'medico/changer_consultation.html', {'form': form, 'consultation': consultation})
+
+def home(request):
+    return render(request, 'medico/home.html')

@@ -180,11 +180,6 @@ path('consultations/', views.consultation_list, 'liste_consultaiton'),
 
 # Question 9 – Modification d’une consultation
 
-## Objectif
-Permettre la modification d’une consultation existante.  
-La date de création ne doit pas être modifiée.
-
-## Étapes réalisées
 1. Création d’une **vue `changer_consultation`** dans `medico/views.py` :
    - Récupère la consultation à modifier via son `id`.
    - Si la requête est POST, met à jour les champs modifiables et sauvegarde.
@@ -198,3 +193,32 @@ La date de création ne doit pas être modifiée.
 3. Mise à jour de `medico/urls.py` :
 ```python
 path('changer_consultation/<int:n>/', views.changer_consultation, name='changer_consultation'),
+
+ 
+ ## Question 10 : Création d’un template principal et d’un menu commun
+
+ 1. **Création du template principal (base.html)** :
+   - Contient la structure HTML générale du site.
+   - Inclut un en-tête et un menu de navigation commun.
+
+ 2. **Héritage dans les autres templates** :
+   - Chaque page spécifique hérite du template principal.
+
+ 3. **Définition de l’URL racine** :
+   - Configurer l’URL `/` pour qu’elle affiche la page principale.
+
+ 4. **Amélioration esthétique avec Bootstrap** :
+   - Intégrer la bibliothèque **Bootstrap** dans le template principal.
+
+## Question 11 : Création du modèle `Traitement`
+
+### 1. Définition du modèle `Traitement` dans `medico/models.py` :
+
+Le modèle doit posséder les attributs suivants :
+- medicament : nom du médicament (non null)
+- quantite : quantité à administrer (non null)
+- contenant : type de contenant (boîte, bouteille, etc.) (non null)
+- duree_en_jours : durée du traitement en jours (non null)
+- posologie: description de la posologie (un ou plusieurs attributs au choix) (non null)
+
+

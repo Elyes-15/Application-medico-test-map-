@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Liste des Consultations</title>
-</head>
-<body>
-    <h1>Liste des Consultations</h1>
+{% extends 'medico/base.html' %}
 
+<<<<<<< HEAD
     {% if consultations %}
     <table border="1" cellpadding="6" cellspacing="0">
         <thead>
@@ -13,6 +8,48 @@
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Genre</th>
+{% extends 'medico/base.html' %}
+
+{% block content %}
+<h2>Liste des consultations</h2>
+
+{% if consultations %}
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Genre</th>
+            <th>Âge</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for consultation in consultations %}
+        <tr>
+            <td>{{ consultation.patient_nom }}</td>
+            <td>{{ consultation.patient_prenom }}</td>
+            <td>{{ consultation.patient_genre }}</td>
+            <td>{{ consultation.patient_age }}</td>
+            <td>{{ consultation.date_consultation }}</td>
+            <td>{{ consultation.description|truncatechars:20 }}</td>
+            <td>
+                <a href="{% url 'details_consultation' consultation.id %}">Détails</a> |
+                <a href="{% url 'changer_consultation' consultation.id %}">Modifier</a> |
+                <a href="{% url 'effacer_consultation' consultation.id %}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p>Aucune consultation enregistrée.</p>
+{% endif %}
+
+<a href="{% url 'nouvelle_consultation' %}">Ajouter une nouvelle consultation</a>
+{% endblock %}
                 <th>Âge</th>
                 <th>Date</th>
                 <th>Description</th>
@@ -62,9 +99,45 @@
 </html>
 
     {% endif %}
+=======
+{% block title %}Liste des consultations{% endblock %}
 
-    <br>
-    <a href="{% url 'about' %}">Retour à l'accueil</a>
+{% block content %}
+<h1>Liste des Consultations</h1>
+>>>>>>> 347111f7a65f461cb6434224f3b514192f90f1c3
 
-</body>
-</html>
+{% if consultations %}
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Genre</th>
+            <th>Âge</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for consultation in consultations %}
+        <tr>
+            <td>{{ consultation.patient_nom }}</td>
+            <td>{{ consultation.patient_prenom }}</td>
+            <td>{{ consultation.patient_genre }}</td>
+            <td>{{ consultation.patient_age }}</td>
+            <td>{{ consultation.date_consultation }}</td>
+            <td>{{ consultation.description|truncatechars:20 }}</td>
+            <td>
+                <a href="{% url 'details_consultation' consultation.id %}">Voir détails</a> |
+                <a href="{% url 'effacer_consultation' consultation.id %}">Supprimer</a> |
+                <a href="{% url 'changer_consultation' consultation.id %}">Modifier</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p>Aucune consultation enregistrée.</p>
+{% endif %}
+{% endblock %}
