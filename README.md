@@ -221,4 +221,36 @@ Le modèle doit posséder les attributs suivants :
 - duree_en_jours : durée du traitement en jours (non null)
 - posologie: description de la posologie (un ou plusieurs attributs au choix) (non null)
 
+### Question 12 - Partie Supprimer
+
+**Modifications effectuées :**  
+1. Création de la vue 'traitement_delete' dans 'medico/views.py` pour permettre la suppression d’un traitement.  
+2. Ajout du template 'traitement_confirm_delete.html' pour confirmer la suppression.  
+3. Ajout de l’URL 'traitement/<int:pk>/delete/' dans 'medico/urls.py'.
+
+**Fonctionnement :**  
+- L’utilisateur clique sur un bouton de suppression dans la liste des traitements.  
+- Une page de confirmation s'affiche.  
+- En confirmant, le traitement est supprimé de la base de données et l'utilisateur est redirigé vers la liste.
+
+
+### Question 12 - Partie Modifier
+
+## Modifications effectuées : ##
+- Création de la vue 'traitement_edit' dans 'medico/views.py' pour permettre la modification d’un traitement
+-  Utilisation du formulaire 'TraitementForm' pour pré-remplir les champs existants et valider les modifications
+-  Ajout du template 'traitement_form.html' pour afficher le formulaire de modification
+-  Ajout de l’URL 'traitement/<int:pk>/edit/' dans 'medico/urls.py'
+
+## Fonctionnement : ##
+- L’utilisateur clique sur un bouton "Modifier" a coté d'un traitement.  
+- Le formulaire apparaît avec les données actuelles du traitement.  
+- Après validation, le traitement est mis à jour en base de données et l'utilisateur est redirigé vers la liste.
+
+
+##Questionsupp:Modification du Front:
+-Ajout du js pour la première page
+-Ajout du css : form.css:pour les pages html et slider.css pour la page home +js pour que les pages switch automatiquement chaque 3s
+-modification question 10: amélioration de Bootstrap
+
 

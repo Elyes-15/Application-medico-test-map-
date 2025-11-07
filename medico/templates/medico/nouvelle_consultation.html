@@ -1,13 +1,40 @@
 {% extends 'medico/base.html' %}
+{% load static %}  {# N'oublie pas de charger static #}
 
 {% block title %}Nouvelle consultation{% endblock %}
 
 {% block content %}
-<h1>Ajouter une nouvelle consultation</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enregistrer</button>
-    <a href="{% url 'liste_consultation' %}">Retour à la liste</a>
-</form>
+
+{# Inclusion du CSS spécifique au formulaire #}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+
+<div class="form-container">
+  <h1>Ajouter une nouvelle consultation</h1>
+  <form method="post" class="consultation-form">
+ {% csrf_token %}
+ <div class="form-group">
+ {{ form.patient_nom.label_tag }}
+ {{ form.patient_nom }}
+ </div>
+ <div class="form-group">
+ {{ form.patient_prenom.label_tag }}
+ {{ form.patient_prenom }}
+ </div>
+ <div class="form-group">
+ {{ form.patient_genre.label_tag }}
+ {{ form.patient_genre }}
+ </div>
+<div class="form-group">
+ {{ form.patient_age.label_tag }}
+ {{ form.patient_age }}
+ </div>
+ <div class="form-group">
+ {{ form.description.label_tag }}
+ {{ form.description }}
+ </div>
+ <button type="submit" class="btn-submit">Enregistrer</button>
+ <a href="{% url 'liste_consultation' %}" class="btn-back">Retour à la liste</a>
+  </form>
+</div>
+
 {% endblock %}

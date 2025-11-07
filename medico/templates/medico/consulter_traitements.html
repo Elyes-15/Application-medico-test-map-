@@ -17,13 +17,17 @@
         </tr>
     </thead>
     <tbody>
-        {% for t in traitements %}
+ {% for t in traitements %}
         <tr>
             <td>{{ t.medicament }}</td>
-            <td>{{ t.quantite }}</td>
+         <td>{{ t.quantite }}</td>
             <td>{{ t.contenant }}</td>
             <td>{{ t.duree }}</td>
             <td>{{ t.posologie }}</td>
+            <td>
+             <a href="{% url 'traitement_edit' t.id %}" class="btn btn-warning btn-sm">Modifier</a>
+              <a href="{% url 'traitement_delete' t.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

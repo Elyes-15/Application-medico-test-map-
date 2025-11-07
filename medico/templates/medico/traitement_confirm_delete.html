@@ -1,0 +1,20 @@
+{% extends "medico/base.html" %}
+{% block title %}Confirmer la suppression{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm mt-5">
+         <div class="card-body text-center">
+         <h3 class="card-title mb-3">Supprimer le traitement : <strong>{{ traitement.nom }}</strong></h3>
+         <p class="mb-4">Voulez-vous vraiment confirmer la suppression de ce traitement ?</p>
+             <form method="post">
+                 {% csrf_token %}
+                 <button type="submit" class="btn btn-danger me-2">Confirmer la suppression</button>
+                 <a href="{% url 'consulter_traitements' traitement.consultation.id %}" class="btn btn-secondary">Annuler</a>
+             </form>
+         </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

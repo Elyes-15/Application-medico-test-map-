@@ -59,6 +59,7 @@ def ajouter_traitement(request):
     else:
         form = TraitementForm()
     return render(request, 'medico/ajouter_traitement.html', {'form': form})
+
 def consulter_traitements(request, consultation_id):
     consultation = get_object_or_404(Consultation, id=consultation_id)
     traitements = Traitement.objects.filter(consultation=consultation)
@@ -67,3 +68,21 @@ def consulter_traitements(request, consultation_id):
         'consultation': consultation,
         'traitements': traitements
     })
+    
+def traitement_delete(request, pk):
+    traitement = get_object_or_404(Traitement, pk=pk)
+    if request.method == "POST":
+        traitement.delete()
+        return redirect('consulter_traitements', consultation_id=traitement.consultation.id)
+    return render(request, 'medico/traitement_confirm_delete.html', {'traitement': traitement})
+
+def traitement_edit(request, pk):
+    traitement = get_object_or_404(Traitement, pk=pk)
+    if request.method == "POST":
+        form = TraitementForm(request.POST, instance=traitement)
+        if form.is_valid():
+            form.save()
+            return redirect('consulter_traitements', consultation_id=traitement.consultation.id)
+    else:
+        form = TraitementForm(instance=traitement)
+    return render(request, 'medico/traitement_form.html', {'form': form})

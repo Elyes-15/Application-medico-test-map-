@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="slide-container">
+  <div class="slide">
+    <div class="item" style="background-image: url('{% static "images/image1.jpg" %}');">
+     <div class="content">
+     <div class="name">Consultation</div>
+     <div class="des">Suivi des patients et enregistrement des consultations.</div>
+      </div>
+    </div>
+ <div class="item" style="background-image: url('{% static "images/image2.jpg" %}');">
+ <div class="content">
+ <div class="name">Ordonnances</div>
+ <div class="des">Gestion simple et sécurisée des prescriptions médicales.</div>
+      </div>
+    </div>
+ <div class="item" style="background-image: url('{% static "images/image4.jpg" %}');">
+ <div class="content">
+ <div class="name">Rapports</div>
+ <div class="des">Analyse des consultations et suivi médical des patients.</div>
+ </div>
+ </div>
+  </div>
+ <div class="button">
+ <button class="prev">&#10094;</button>
+ <button class="next">&#10095;</button>
+  </div>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/slider.css' %}">
+<script src="{% static 'js/slider.js' %}"></script>

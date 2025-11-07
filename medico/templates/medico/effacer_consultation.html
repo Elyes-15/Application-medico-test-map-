@@ -1,14 +1,17 @@
 {% extends 'medico/base.html' %}
 
-{% block title %}Supprimer la consultation{% endblock %}
+{% block title %}Confirmer la suppression{% endblock %}
 
 {% block content %}
-<h2>Confirmer la suppression</h2>
-<p>Voulez-vous vraiment supprimer la consultation de {{ consultation.patient_nom }} {{ consultation.patient_prenom }} ?</p>
-
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Oui, supprimer</button>
-    <a href="{% url 'liste_consultation' %}">Annuler</a>
-</form>
+<div class="text-center mt-5">
+    <h1>Confirmer la suppression</h1>
+ <p>Voulez-vous vraiment supprimer la consultation de <strong>{{ consultation.patient_nom }} {{ consultation.patient_prenom }}</strong> ?</p>
+ <div class="mt-3">
+ <form method="post" style="display:inline;">
+     {% csrf_token %}
+     <button type="submit" class="btn btn-danger">Supprimer</button>
+     </form>
+     <a href="{% url 'liste_consultation' %}" class="btn btn-secondary">Annuler</a>
+</div>
+</div>
 {% endblock %}

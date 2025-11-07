@@ -1,8 +1,11 @@
 {% extends 'medico/base.html' %}
+{% load static %}
 
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-    <h1 class="text-center">Bienvenue sur Medico !</h1>
-    <p class="lead text-center">Application de gestion des consultations médicales.</p>
+<h1 class="text-center">Bienvenue sur Medico !</h1>
+<p class="lead text-center">Application de gestion des consultations médicales.</p>
+{# Inclusion du slider #}
+{% include 'medico/slider.html' %}
 {% endblock %}

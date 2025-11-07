@@ -1,0 +1,46 @@
+{% extends 'medico/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %} 
+{% block title %}Modifier le traitement{% endblock %}
+{% block content %}
+<div class="form-container">
+  <h1>Modifier le traitement</h1>
+
+  <form method="post" class="consultation-form">
+    {% csrf_token %}
+ <div class="form-group">
+     {{ form.consultation.label_tag }}
+        {{ form.consultation }}
+    </div>
+ <div class="form-group">
+     {{ form.medicament.label_tag }}
+     {{ form.medicament }}
+    </div>
+ <div class="form-group">
+     {{ form.quantite.label_tag }}
+        {{ form.quantite }}
+    </div>
+
+    <div class="form-group">
+     {{ form.contenant.label_tag }}
+        {{ form.contenant }}
+    </div>
+
+  <div class="form-group">
+        {{ form.duree_en_jours.label_tag }}
+        {{ form.duree_en_jours }}
+    </div>
+
+    <div class="form-group">
+        {{ form.posologie.label_tag }}
+        {{ form.posologie }}
+    </div>
+
+    <button type="submit" class="btn-submit">Enregistrer les modifications</button>
+    <a href="{% url 'consulter_traitements' consultation_id=form.instance.consultation.id %}" class="btn-back">Annuler</a>
+  </form>
+</div>
+{% endblock %}
