@@ -1,0 +1,5 @@
+DT.onReadyIdle(async()=>{window.mres=window.location.hash.match(/\#res(\d+)/);if(mres){await DT.loadScriptsOnce('js/functions_cookie.js');setCookie2('dreamstime_reseller',parseInt(mres[1],10));try{await fetch('/ajax/visit.php?res='+parseInt(mres[1],10))}catch(_err){}
+var ref=document.referrer||'';if(!ref)
+dtrfr=ref;if(ref&&ref!=''&&ref.indexOf('.dreamstime.com')==-1){var img=new Image();img.src='/img404.php?ref='+encodeURIComponent(ref)}}
+window.mref=window.location.hash.match(/\#ref(\d+)/);if(window.mref){await DT.loadScriptsOnce('js/functions_cookie.js');setCookie2('dreamstime_referer',parseInt(window.mref[1],10));try{await fetch('/ajax/visit.php?ref='+parseInt(window.mref[1],10))}catch(_err){}
+const refs_force_refresh=[7703617,7703618,7703619,7703620,7703621,7703617];if(DT.isPage('register','credits','buycredits')||refs_force_refresh.includes(parseInt(window.mref[1],10))){window.location.hash='';location.reload()}}})
