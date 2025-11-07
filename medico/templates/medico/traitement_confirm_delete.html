@@ -11,8 +11,8 @@
              <form method="post">
                  {% csrf_token %}
                  <button type="submit" class="btn btn-danger me-2">Confirmer la suppression</button>
-                 <a href="{% url 'consulter_traitements' traitement.consultation.id %}" class="btn btn-secondary">Annuler</a>
-             </form>
+           <a href="{% url 'consulter_traitements' traitement.consultation.id %}" class="btn btn-secondary">Annuler</a>
+       </form>
          </div>
         </div>
     </div>

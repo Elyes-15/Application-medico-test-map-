@@ -1,0 +1,49 @@
+{% extends 'medico/base.html' %}
+{% block content %}
+<h1>Liste des urgences signalées</h1>
+
+{% if urgences %}
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Patient</th>
+          <th>Signes vitaux</th>
+            <th>Remarque</th>
+            <th>Date</th>
+            <th>Statut</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for urgence in urgences %}
+        <tr {% if not urgence.traitee %}style="background-color:#ffe0e0;"{% endif %}>
+            <td>{{ urgence.consultation.patient_nom }}</td>
+<td>{{ urgence.consultation.patient_prenom }}</td>
+         <td>{{ urgence.signes_vitaux }}</td>
+            <td>{{ urgence.remarque }}</td>
+            <td>{{ urgence.date_signalement }}</td>
+            <td>
+            {% if urgence.traitee %}
+                     Traitée
+                {% else %}
+                     Non traitée
+                {% endif %}
+            </td>
+            <td>
+             {% if not urgence.traitee %}
+                <a href="{% url 'marquer_traitee' urgence.id %}" class="btn btn-success btn-sm">Marquer comme traitée</a>
+                {% endif %}
+             <a href="{% url 'supprimer_urgence' urgence.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Aucune urgence signalée.</p>
+{% endif %}
+
+{# <a href="{% url 'signaler_urgence' consultation.id %}" class="btn btn-danger mt-3">Signaler une nouvelle urgence</a> #}
+
+<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Retour à l’accueil</a>
+{% endblock %}

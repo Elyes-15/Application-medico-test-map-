@@ -22,7 +22,7 @@
             <td>{{ t.medicament }}</td>
          <td>{{ t.quantite }}</td>
             <td>{{ t.contenant }}</td>
-            <td>{{ t.duree }}</td>
+          <td>{{ t.duree_en_jours }}</td>
             <td>{{ t.posologie }}</td>
             <td>
              <a href="{% url 'traitement_edit' t.id %}" class="btn btn-warning btn-sm">Modifier</a>
@@ -37,5 +37,8 @@
 {% endif %}
 
 <br>
-<a href="{% url 'details_consultation' consultation.id %}">Retour à la consultation</a>
+<a href="{% url 'details_consultation' consultation.id %}" class="btn btn-primary mt-3">
+    <i class="bi bi-arrow-left"></i> Retour à la consultation
+</a>
+
 {% endblock %}

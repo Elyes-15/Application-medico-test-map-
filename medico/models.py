@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Consultation(models.Model):
     patient_nom = models.CharField(max_length=40, null=False)
@@ -28,3 +29,9 @@ class Traitement(models.Model):
 
     def __str__(self):
         return f"{self.medicament} ({self.consultation})"
+class Urgence(models.Model):
+    consultation = models.ForeignKey('Consultation', on_delete=models.CASCADE)
+    signes_vitaux = models.TextField()
+    remarque = models.TextField(blank=True, null=True)
+    date_signalement = models.DateTimeField(default=timezone.now)
+    traitee = models.BooleanField(default=False)

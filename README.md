@@ -248,9 +248,41 @@ Le modèle doit posséder les attributs suivants :
 - Après validation, le traitement est mis à jour en base de données et l'utilisateur est redirigé vers la liste.
 
 
-##Questionsupp:Modification du Front:
+###Questionsupp:Modification du Front:
 -Ajout du js pour la première page
 -Ajout du css : form.css:pour les pages html et slider.css pour la page home +js pour que les pages switch automatiquement chaque 3s
 -modification question 10: amélioration de Bootstrap
+-Ajout de la fonction de l adaptation sur les petits écrans:
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+### Extentions(derniere question):
+ELYES+RAYANE
+Elle offre la possibilité de :
+- Visualiser la liste des consultations existantes ;
+- Consulter les détails de chaque patient (médicament, posologie, traitement, etc.) ;
+- Signaler un **cas d’urgence** pour un patient ;
+- Gérer les urgences depuis une page dédiée ;
+- Suivre en temps réel le **nombre total de cas d’urgence** via un compteur dynamique dans la page principale.
+
+Etapes:
+- Affichage de la **liste complète des consultations** (avec le nom du patient).
+- Accès au **détail de chaque consultation** : traitements prescrits, quantités, durée, posologie, etc.
+- Ajout, modification et suppression de consultations.
+- Ajout de nouveaux traitements liés à une consultation.
+
+1.Gestion des urgences
+- Depuis une consultation, possibilité de **signaler un cas d’urgence**.
+- Lorsqu’un cas est signalé :
+  - Il est automatiquement enregistré dans la page dédiée aux urgences.
+  - Le **compteur de cas d’urgence** sur la page principale est incrémenté.
+- Chaque urgence peut être :
+  - **Marquée comme traitée** -> le compteur se décrémente automatiquement.
+  - **Supprimée** définitivement si nécessaire.
+2. Page des urgences
+- Liste de toutes les urgences signalées, triées par **date de signalement (la plus récente en premier)**.
+- Boutons pour **marquer comme traitée** ou **supprimer** une urgence.
+- Suivi clair de l’état de chaque cas.
 
 

@@ -3,6 +3,9 @@ from .models import Consultation
 from .forms import ConsultationForm
 from .models import Traitement
 from .forms import TraitementForm
+from .models import Urgence
+from .forms import UrgenceForm
+
 
 def about(request):
     return render(request, 'medico/about.html')
@@ -45,8 +48,14 @@ def changer_consultation(request, consultation_id):
 
     return render(request, 'medico/changer_consultation.html', {'form': form, 'consultation': consultation})
 
+
+
 def home(request):
-    return render(request, 'medico/home.html')
+    urgences_non_traitees = Urgence.objects.filter(traitee=False).count()
+    return render(request, 'medico/home.html', {
+        'urgences_non_traitees': urgences_non_traitees
+    })
+
 
 
 
@@ -86,3 +95,42 @@ def traitement_edit(request, pk):
     else:
         form = TraitementForm(instance=traitement)
     return render(request, 'medico/traitement_form.html', {'form': form})
+
+
+def liste_urgences(request):
+    urgences = Urgence.objects.all().order_by('-date_signalement')
+    return render(request, 'medico/liste_urgences.html', {'urgences': urgences})
+
+
+
+def signaler_urgence(request, consultation_id):
+    consultation = get_object_or_404(Consultation, id=consultation_id)
+    
+    if request.method == 'POST':
+        form = UrgenceForm(request.POST)
+        if form.is_valid():
+            urgence = form.save(commit=False)
+            urgence.consultation = consultation
+            urgence.save()
+            return redirect('liste_urgences')
+    else:
+        form = UrgenceForm()
+
+    return render(request, 'medico/signal_urgence.html', {
+        'form': form,
+        'consultation': consultation
+    })
+
+
+def marquer_traitee(request, urgence_id):
+    urgence = get_object_or_404(Urgence, id=urgence_id)
+    urgence.traitee = True
+    urgence.save()
+    return redirect('liste_urgences')
+
+
+
+def supprimer_urgence(request, urgence_id):
+    urgence = get_object_or_404(Urgence, id=urgence_id)
+    urgence.delete()
+    return redirect('liste_urgences')

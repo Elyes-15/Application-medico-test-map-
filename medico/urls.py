@@ -11,6 +11,10 @@ urlpatterns = [
     path('nouvelle_consultation/', views.ajouter_consultation, name='ajouter_consultation'),
     path('ajouter_traitement/', views.ajouter_traitement, name='ajouter_traitement'),
     path('consultation/<int:consultation_id>/traitements/', views.consulter_traitements, name='consulter_traitements'),
-    path('traitement/<int:pk>/delete/', views.traitement_delete, name='traitement_delete'),
     path('traitement/<int:pk>/edit/', views.traitement_edit, name='traitement_edit'),
-    ]
+    path('traitement/<int:pk>/delete/', views.traitement_delete, name='traitement_delete'),
+    path('urgences/', views.liste_urgences, name='liste_urgences'),
+    path('consultation/<int:consultation_id>/urgence/signaler/', views.signaler_urgence, name='signaler_urgence'),
+    path('urgence/<int:urgence_id>/traitee/', views.marquer_traitee, name='marquer_traitee'),
+    path('urgence/<int:urgence_id>/supprimer/', views.supprimer_urgence, name='supprimer_urgence'),
+]

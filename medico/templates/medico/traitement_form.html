@@ -12,11 +12,11 @@
   <form method="post" class="consultation-form">
     {% csrf_token %}
  <div class="form-group">
-     {{ form.consultation.label_tag }}
+    {{ form.consultation.label_tag }}
         {{ form.consultation }}
-    </div>
+   </div>
  <div class="form-group">
-     {{ form.medicament.label_tag }}
+    {{ form.medicament.label_tag }}
      {{ form.medicament }}
     </div>
  <div class="form-group">
@@ -30,13 +30,13 @@
     </div>
 
   <div class="form-group">
-        {{ form.duree_en_jours.label_tag }}
-        {{ form.duree_en_jours }}
+       {{ form.duree_en_jours.label_tag }}
+       {{ form.duree_en_jours }}
     </div>
 
     <div class="form-group">
-        {{ form.posologie.label_tag }}
-        {{ form.posologie }}
+       {{ form.posologie.label_tag }}
+      {{ form.posologie }}
     </div>
 
     <button type="submit" class="btn-submit">Enregistrer les modifications</button>

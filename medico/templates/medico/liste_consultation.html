@@ -9,13 +9,13 @@
 <table class="table table-bordered">
     <thead class="bg-primary text-white">
         <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Genre</th>
-            <th>Âge</th>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Actions</th>
+         <th>Nom</th>
+         <th>Prénom</th>
+         <th>Genre</th>
+         <th>Âge</th>
+         <th>Date</th>
+         <th>Description</th>
+         <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -28,9 +28,9 @@
             <td>{{ consultation.date_consultation }}</td>
             <td>{{ consultation.description|truncatechars:20 }}</td>
             <td>
-                <a href="{% url 'details_consultation' consultation.id %}" class="btn btn-info btn-sm mb-1">Voir détails</a>
-                <a href="{% url 'effacer_consultation' consultation.id %}" class="btn btn-danger btn-sm mb-1">Supprimer</a>
-                <a href="{% url 'changer_consultation' consultation.id %}" class="btn btn-warning btn-sm mb-1">Modifier</a>
+             <a href="{% url 'details_consultation' consultation.id %}" class="btn btn-info btn-sm mb-1">Voir détails</a>
+             <a href="{% url 'effacer_consultation' consultation.id %}" class="btn btn-danger btn-sm mb-1">Supprimer</a>
+             <a href="{% url 'changer_consultation' consultation.id %}" class="btn btn-warning btn-sm mb-1">Modifier</a>
             </td>
         </tr>
         {% endfor %}
