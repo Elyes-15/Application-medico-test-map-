@@ -1,17 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const next = document.querySelector('.next');
-  const prev = document.querySelector('.prev');
   const slide = document.querySelector('.slide');
+  const items = document.querySelectorAll('.item');
+  const total = items.length;
+  let index = 0;
 
   if (!slide) return;
+  const goNext = () => {
+    index = (index + 1) % total;
+    slide.style.transform = `translateX(-${index * 100}%)`;
+  };
 
-  next.addEventListener('click', () => {
-    const items = document.querySelectorAll('.item');
-    slide.appendChild(items[0]);
-  });
+  const goPrev = () => {
+    index = (index - 1 + total) % total;
+    slide.style.transform = `translateX(-${index * 100}%)`;
+  };
 
-  prev.addEventListener('click', () => {
-    const items = document.querySelectorAll('.item');
-    slide.prepend(items[items.length - 1]);
-  });
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  if (nextBtn) nextBtn.addEventListener('click', goNext);
+  if (prevBtn) prevBtn.addEventListener('click', goPrev);
+
+  setInterval(goNext, 3000);
 });

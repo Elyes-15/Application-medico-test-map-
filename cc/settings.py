@@ -15,10 +15,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-# Autoriser les requêtes depuis ton domaine Render
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'medico.onrender.com').split(',')
+
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+
+if DEBUG:
+    ALLOWED_HOSTS = ['*']  # autorise tous les hôtes en dev
+else:
+    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'medico.onrender.com').split(',')
+
 
 # Application definition
 INSTALLED_APPS = [
