@@ -5,10 +5,12 @@ from .models import Traitement
 from .forms import TraitementForm
 from .models import Urgence
 from .forms import UrgenceForm
+from .utils import geocode_address
 
 
 def about(request):
-    return render(request, 'medico/about.html')
+    consultations = Consultation.objects.all()
+    return render(request, 'medico/about.html', {'consultations': consultations})
 
 def details_consultation(request, n):
     consultation = Consultation.objects.get(id = n)
@@ -21,12 +23,23 @@ def ajouter_consultation(request):
     if request.method == 'POST':
         form = ConsultationForm(request.POST)
         if form.is_valid():
-            form.save()
+            consultation = form.save(commit=False)
+
+            if consultation.patient_adresse:
+                try:
+                    lat, lon = geocode_address(consultation.patient_adresse)
+                    consultation.latitude = lat
+                    consultation.longitude = lon
+                except Exception:
+                    consultation.latitude = None
+                    consultation.longitude = None
+
+            consultation.save()
             return redirect('liste_consultation')  
     else:
         form = ConsultationForm()
+    
     return render(request, 'medico/nouvelle_consultation.html', {'form': form})
-
 def effacer_consultation(request, consultation_id):
     consultation = get_object_or_404(Consultation, pk=consultation_id)
 
@@ -134,3 +147,5 @@ def supprimer_urgence(request, urgence_id):
     urgence = get_object_or_404(Urgence, id=urgence_id)
     urgence.delete()
     return redirect('liste_urgences')
+
+

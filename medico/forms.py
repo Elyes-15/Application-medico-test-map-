@@ -6,7 +6,7 @@ from .models import Urgence
 class ConsultationForm(forms.ModelForm):
       class Meta:
         model = Consultation
-        fields = ['patient_nom', 'patient_prenom', 'patient_genre', 'patient_age', 'description']
+        fields = ['patient_nom', 'patient_prenom', 'patient_genre', 'patient_age', 'description', 'patient_adresse']
         
         
 

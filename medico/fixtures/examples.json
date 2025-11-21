@@ -8,7 +8,8 @@
       "patient_genre": "F",
       "patient_age": 25,
       "description": "Grippe - paracétamol, repos",
-      "date_consultation": "2025-11-04"
+      "date_consultation": "2025-11-04",
+      "patient_adresse": "10 rue de Paris, Paris"
     }
   },
   {
@@ -20,7 +21,8 @@
       "patient_genre": "M",
       "patient_age": 30,
       "description": "Mal de tête - ibuprofène, repos",
-      "date_consultation": "2025-11-03"
+      "date_consultation": "2025-11-03",
+      "patient_adresse": "5 avenue Victor Hugo, Lyon"
     }
   },
   {
@@ -32,7 +34,8 @@
       "patient_genre": "F",
       "patient_age": 28,
       "description": "Rhume - sirop contre la toux, repos",
-      "date_consultation": "2025-11-02"
+      "date_consultation": "2025-11-02",
+      "patient_adresse": "12 boulevard Saint-Germain, Paris"
     }
   },
   {
@@ -44,7 +47,8 @@
       "patient_genre": "M",
       "patient_age": 35,
       "description": "Toux - sirop, inhalation",
-      "date_consultation": "2025-11-01"
+      "date_consultation": "2025-11-01",
+      "patient_adresse": "3 rue de la République, Marseille"
     }
   },
   {
@@ -56,7 +60,8 @@
       "patient_genre": "F",
       "patient_age": 22,
       "description": "Fièvre - paracétamol, hydratation",
-      "date_consultation": "2025-10-31"
+      "date_consultation": "2025-10-31",
+      "patient_adresse": "7 avenue des Champs-Élysées, Paris"
     }
   },
   {
@@ -68,7 +73,8 @@
       "patient_genre": "M",
       "patient_age": 40,
       "description": "Mal de ventre - Spasfon, hydratation",
-      "date_consultation": "2025-10-30"
+      "date_consultation": "2025-10-30",
+      "patient_adresse": "15 rue de la Paix, Paris"
     }
   },
   {
@@ -80,7 +86,8 @@
       "patient_genre": "F",
       "patient_age": 32,
       "description": "Otite - paracétamol, gouttes auriculaires",
-      "date_consultation": "2025-10-29"
+      "date_consultation": "2025-10-29",
+      "patient_adresse": "22 rue Lafayette, Paris"
     }
   },
   {
@@ -92,7 +99,8 @@
       "patient_genre": "M",
       "patient_age": 29,
       "description": "Mal de gorge - pastilles, gargarismes",
-      "date_consultation": "2025-10-28"
+      "date_consultation": "2025-10-28",
+      "patient_adresse": "8 boulevard Haussmann, Paris"
     }
   },
   {
@@ -104,7 +112,8 @@
       "patient_genre": "F",
       "patient_age": 26,
       "description": "Allergie - antihistaminique",
-      "date_consultation": "2025-10-27"
+      "date_consultation": "2025-10-27",
+      "patient_adresse": "4 rue de la Liberté, Lille"
     }
   },
   {
@@ -116,7 +125,8 @@
       "patient_genre": "M",
       "patient_age": 34,
       "description": "Conjonctivite - collyre antibiotique, hygiène oculaire",
-      "date_consultation": "2025-10-26"
+      "date_consultation": "2025-10-26",
+      "patient_adresse": "11 rue de la Paix, Lyon"
     }
   },
   {
@@ -128,7 +138,8 @@
       "patient_genre": "F",
       "patient_age": 31,
       "description": "Gastro-entérite - réhydratation, repos",
-      "date_consultation": "2025-10-25"
+      "date_consultation": "2025-10-25",
+      "patient_adresse": "9 avenue Jean Jaurès, Toulouse"
     }
   },
   {
@@ -140,7 +151,8 @@
       "patient_genre": "M",
       "patient_age": 38,
       "description": "Plaie légère - désinfection, pansement",
-      "date_consultation": "2025-10-24"
+      "date_consultation": "2025-10-24",
+      "patient_adresse": "2 rue Saint-Michel, Bordeaux"
     }
   }
 ]

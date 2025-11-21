@@ -12,6 +12,10 @@ class Consultation(models.Model):
     patient_age = models.PositiveIntegerField(null=False)
     description = models.TextField(null=False)
     date_consultation = models.DateField(auto_now_add=True)
+      # NOUVEAUX CHAMPS
+    patient_adresse = models.CharField(max_length=255, null=True, blank=True)
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.patient_prenom} {self.patient_nom} - {self.date_consultation}"

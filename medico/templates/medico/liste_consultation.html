@@ -15,7 +15,7 @@
          <th>Âge</th>
          <th>Date</th>
          <th>Description</th>
-         <th>Actions</th>
+         <th> adresse</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +27,7 @@
             <td>{{ consultation.patient_age }}</td>
             <td>{{ consultation.date_consultation }}</td>
             <td>{{ consultation.description|truncatechars:20 }}</td>
+            <td>{{ consultation.patient_adresse|truncatechars:20 }}</td>
             <td>
              <a href="{% url 'details_consultation' consultation.id %}" class="btn btn-info btn-sm mb-1">Voir détails</a>
              <a href="{% url 'effacer_consultation' consultation.id %}" class="btn btn-danger btn-sm mb-1">Supprimer</a>
